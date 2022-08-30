@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<ProductList/>
+
+@*
+@using ShopEasy.Shared.DTO
+@using ShopEazy.Shared
+@using Syncfusion.Blazor.Grids
+@using Syncfusion.Blazor
+*@
+@*<SfGrid DataSource="@Products" >
+    <GridColumns class="">
+        <GridColumn Field="@nameof(ProductDTO.Name)" HeaderText="Product Name"></GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.Price)" HeaderText="Price"></GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.Desc)" HeaderText="Description"></GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.Remark)" HeaderText="Product Remark"></GridColumn>
+   
+       <GridColumn Field="@nameof(ProductDTO.Sku)" HeaderText="Sku">this is grid</GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.CategoryId)" HeaderText="Category Id"></GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.CreatedAt)" HeaderText="Created At"></GridColumn>
+        <GridColumn Field="@nameof(ProductDTO.ShortDescription)" HeaderText="Short Description"></GridColumn>
+    </GridColumns>
+</SfGrid>*@
+
+@*@code {
+    public List<ProductDTO> Products { get; set; } 
+    
+    protected override void OnInitialized()
+    {
+        Products = LoadData();
+         
+    }
+
+    private List<ProductDTO> LoadData()
+    {
+      
+
+        ProductDTO P1 = new ProductDTO
+            {
+                Name = "vxvcxvcx",
+                Price = 200,
+                Desc = "This is description",
+                CategoryId = 1,
+                CreatedAt = DateTime.Today,
+                InventoryId = 1,
+                ShortDescription = "Short Description",
+                Remark = "Nothing",
+                Sku = "SKUNew",
+            };
+        ProductDTO P2 = new ProductDTO
+            {
+                Name = "Product2",
+                Price = 200,
+                Desc = "This is description",
+                CategoryId = 1,
+                CreatedAt = DateTime.Today,
+                InventoryId = 1,
+                ShortDescription = "Short Description",
+                Remark = "Nothing",
+                Sku = "SKUNew",
+            };
+        ProductDTO P3 = new ProductDTO
+            {
+                Name = "Product3",
+                Price = 200,
+                Desc = "This is description",
+                CategoryId = 1,
+                CreatedAt = DateTime.Today,
+                InventoryId = 1,
+                ShortDescription = "Short Description",
+                Remark = "Nothing",
+                Sku = "SKUNew",
+            };
+        return new List<ProductDTO> { P1, P2, P3 };
+
+    }
+}*@

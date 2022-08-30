@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DTO\CartItemDTO.cs" />
+    <Compile Remove="DTO\OrderDetailDTO.cs" />
+    <Compile Remove="DTO\OrderItemDTO.cs" />
+    <Compile Remove="DTO\PaymentDetailDTO.cs" />
+    <Compile Remove="DTO\ProductCategoryDTO.cs" />
+    <Compile Remove="DTO\ProductDiscountDTO.cs" />
+    <Compile Remove="DTO\ProductInventoryDTO.cs" />
+    <Compile Remove="DTO\ShoppingSessionDTO.cs" />
+    <Compile Remove="DTO\UserAddressDTO.cs" />
+    <Compile Remove="DTO\UserDTO.cs" />
+    <Compile Remove="DTO\UserPaymentDTO.cs" />
+    <Compile Remove="Models\CartItem.cs" />
+    <Compile Remove="Models\OrderDetail.cs" />
+    <Compile Remove="Models\OrderItem.cs" />
+    <Compile Remove="Models\PaymentDetail.cs" />
+    <Compile Remove="Models\ProductCategory.cs" />
+    <Compile Remove="Models\ProductDiscount.cs" />
+    <Compile Remove="Models\ProductInventory.cs" />
+    <Compile Remove="Models\ShoppingSession.cs" />
+    <Compile Remove="Models\User.cs" />
+    <Compile Remove="Models\UserAddress.cs" />
+    <Compile Remove="Models\UserPayment.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+</Project>
