@@ -1,6 +1,9 @@
-﻿using ShopEasy.Shared.Models;
+﻿
+using ShopEasy.Shared.Models;
+
 using ShopEazy.Shared;
 using System.Net.Http.Json;
+
 
 namespace ShopEazy.Client.ClientServices.ClientProductServices
 {
@@ -14,6 +17,12 @@ namespace ShopEazy.Client.ClientServices.ClientProductServices
         }
 
         public List<Product> Products { get; set; } = new List<Product>();
+
+        public async Task<ApplicationResponse<Product>> GetProductById(int Id)
+        {
+            var result = await _http.GetFromJsonAsync<ApplicationResponse<Product>>($"api/Product/{Id}");
+             return result;
+        }
 
         public async Task GetProducts()
         {

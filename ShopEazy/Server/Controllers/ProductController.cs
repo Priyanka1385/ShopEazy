@@ -27,6 +27,11 @@ namespace ShopEazy.Server.Controllers
             var response = await _productServices.GetProduct();
             return Ok(response);
         }
-
+        [HttpGet("{Id:int}")]
+        public async Task<ActionResult<ApplicationResponse<Product>>> GetProductById(int Id)
+        {
+            var response = await _productServices.GetProductById(Id);
+            return Ok(response);
+        }
     }
 }

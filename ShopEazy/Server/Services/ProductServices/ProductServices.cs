@@ -23,5 +23,24 @@ namespace ShopEazy.Server.Services.ProductServices
 
             return response;
         }
+
+        public async Task<ApplicationResponse<Product>> GetProductById(int id)
+        {
+            ApplicationResponse<Product> response = new ApplicationResponse<Product>();
+            var Product = await _context.Products.FindAsync(id);
+            if(Product == null)
+            {
+                response.Message = "Sorry, but this product does not exist.";
+                response.Success = false;
+            }
+            else {
+                
+                response.Data = Product;
+                response.Message = "Searched Product";
+            }
+           
+
+            return response;
+        }
     }
 }
