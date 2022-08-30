@@ -1,9 +1,18 @@
-﻿@inject HttpClient http
+﻿@inject IProductClientServices ProductClientServices
 @using ShopEasy.Shared.Models
-<ul class="list-unstyled">
-    @foreach (var Product in Products)
-    {
-        <li class="media my-3">
+@using ShopEazy.Shared
+
+@if (ProductClientServices.Products == null || ProductClientServices.Products.Count == 0)
+{
+    <span>Loding Products...</span>
+
+}
+else
+{
+    <ul class="list-unstyled">
+        @foreach (var Product in ProductClientServices.Products)
+        {
+            <li class="media my-3">
                 <div class="media-img-wrapper mr-2">
                     <a href="/product/@Product.Id">
                         <img class="media-img" src="@Product.ImageUrl" alt="@Product.Title" />
@@ -20,15 +29,15 @@
                     </h5>
                 </div>
             </li>
-    }
-</ul>
-
+        }
+    </ul>
+}
 @code {
-    private static List<Product> Products = new List<Product>();
+    
 
     protected override async Task OnInitializedAsync()
     {
-        Products = await http.GetFromJsonAsync<List<Product>>("api/Product");
-        
+        await ProductClientServices.GetProducts();
+
     }
 }

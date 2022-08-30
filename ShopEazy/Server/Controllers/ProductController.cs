@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopEasy.Shared.Models;
 using ShopEazy.Server.Data;
+using ShopEazy.Server.Services.ProductServices;
+using ShopEazy.Shared;
 
 namespace ShopEazy.Server.Controllers
 {
@@ -10,18 +12,20 @@ namespace ShopEazy.Server.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly DataContext _context;
+       
+        private readonly IProductServices _productServices;
 
-        public ProductController(DataContext context)
+        public ProductController(IProductServices productServices)
         {
-            _context = context;
+            
+            _productServices = productServices;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<ApplicationResponse<List<Product>>>> GetProducts()
         {
-            var Products = await _context.Products.ToListAsync();
-            return Ok(Products);
+            var response = await _productServices.GetProduct();
+            return Ok(response);
         }
 
     }
