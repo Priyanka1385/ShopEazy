@@ -1,6 +1,19 @@
 ﻿@page "/"
+@page "/{categoryUrl}"
+@inject IProductClientServices ProductClientServices
 
 <ProductList/>
+
+@code{
+    [Parameter]
+    public String CategoryUrl { get; set; } = null;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await ProductClientServices.GetProducts(CategoryUrl);
+    }
+
+}
 
 @*
 @using ShopEasy.Shared.DTO

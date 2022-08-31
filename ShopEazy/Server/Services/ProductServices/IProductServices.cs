@@ -7,5 +7,6 @@ namespace ShopEazy.Server.Services.ProductServices
     {
         public Task<ApplicationResponse<List<Product>>> GetProduct();
         public Task<ApplicationResponse<Product>> GetProductById(int id);
+        public Task<ApplicationResponse<List<Product>>> GetProductsByCategory(string CategoryUrl);
     }
 }

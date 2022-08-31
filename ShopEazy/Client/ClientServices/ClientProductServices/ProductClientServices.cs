@@ -18,16 +18,21 @@ namespace ShopEazy.Client.ClientServices.ClientProductServices
 
         public List<Product> Products { get; set; } = new List<Product>();
 
+        public event Action ProductsSelectionChanged;
+
         public async Task<ApplicationResponse<Product>> GetProductById(int Id)
         {
             var result = await _http.GetFromJsonAsync<ApplicationResponse<Product>>($"api/Product/{Id}");
              return result;
         }
 
-        public async Task GetProducts()
+        public async Task GetProducts(string CategoryUrl = null)
         {
-            var result = await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>("api/Product");
+            var result = CategoryUrl == null ? await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>("api/Product") :
+                await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>($"api/Product/category/{CategoryUrl}");
+
             Products = result.Data;
+            ProductsSelectionChanged.Invoke();
         }
     }
 }

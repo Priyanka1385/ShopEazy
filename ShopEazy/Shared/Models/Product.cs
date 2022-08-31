@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-//using Microsoft.EntityFrameworkCore;
+
 
 namespace ShopEasy.Shared.Models
 {
-    [Table("Product")]
+    [Table("Products")]
     public partial class Product    {
        
 
@@ -34,9 +34,13 @@ namespace ShopEasy.Shared.Models
         [Column("modified_at", TypeName = "datetime")]
         public DateTime? ModifiedAt { get; set; }
 
-        public byte IsActive { get; set; } = 1;
+        [Column("IsActive", TypeName = "bit")]
+        public bool IsActive { get; set; } = true;
         public string? Remark { get; set; }
 
-      
+        public Category Category { get; set; }
+        public int CategoryId { get; set; }
+
+
     }
 }

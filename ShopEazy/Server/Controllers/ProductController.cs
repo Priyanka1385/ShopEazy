@@ -33,5 +33,14 @@ namespace ShopEazy.Server.Controllers
             var response = await _productServices.GetProductById(Id);
             return Ok(response);
         }
+
+        [HttpGet("category/{CategoryUrl}")]
+
+        public async Task<ActionResult<ApplicationResponse<List<Product>>>> GetProductsByCategory(String CategoryUrl)
+        {
+            var response = await _productServices.GetProductsByCategory(CategoryUrl);
+            return Ok(response);
+
+        }
     }
 }

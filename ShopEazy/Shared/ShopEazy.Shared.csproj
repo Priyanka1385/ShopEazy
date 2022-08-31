@@ -22,7 +22,6 @@
     <Compile Remove="Models\OrderDetail.cs" />
     <Compile Remove="Models\OrderItem.cs" />
     <Compile Remove="Models\PaymentDetail.cs" />
-    <Compile Remove="Models\ProductCategory.cs" />
     <Compile Remove="Models\ProductDiscount.cs" />
     <Compile Remove="Models\ProductInventory.cs" />
     <Compile Remove="Models\ShoppingSession.cs" />

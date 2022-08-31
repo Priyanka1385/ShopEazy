@@ -1,6 +1,7 @@
 ﻿@inject IProductClientServices ProductClientServices
 @using ShopEasy.Shared.Models
 @using ShopEazy.Shared
+@implements IDisposable
 
 @if (ProductClientServices.Products == null || ProductClientServices.Products.Count == 0)
 {
@@ -33,11 +34,16 @@ else
     </ul>
 }
 @code {
-    
 
-    protected override async Task OnInitializedAsync()
+
+    protected override void OnInitialized()
     {
-        await ProductClientServices.GetProducts();
+        // await ProductClientServices.GetProducts();
+        ProductClientServices.ProductsSelectionChanged += StateHasChanged;
+    }
 
+    public void Dispose()
+    {
+        ProductClientServices.ProductsSelectionChanged -= StateHasChanged;
     }
 }
