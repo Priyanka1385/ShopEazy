@@ -1,5 +1,5 @@
 ﻿@page "/product/{id:int}"
-@using ShopEasy.Shared.Models
+@using ShopEazy.Shared.Models
 @inject IProductClientServices ProductClientServices
 
 @if (product == null)
@@ -16,13 +16,37 @@ else
             <h2 class="mb-0">@product.Title</h2>
             
             <p>@product.Description</p>
-            <h4 class="price"><span class="currency">&#8377;</span>@product.Price</h4>
+            @if (product.Variants != null && product.Variants.Count > 1)
+            {
+                <div class="form-group table-responsive" >
+
+                    <select class="form-select" @bind="currentTypeId">
+                        @foreach(var variant in product.Variants )
+                        {
+                            <option value="@variant.ProductTypeId">@variant.ProductType.Name</option>
+                        }
+
+                    </select>
+                </div>
+
+            }
+
+            @if(GetSelectedVaraint() != null)
+            {
+                if(GetSelectedVaraint().OriginalPrice > GetSelectedVaraint().Price)
+                {
+                    <h6 class="text-muted original-price"><span class="currency">&#8377;</span>@GetSelectedVaraint().OriginalPrice</h6>
+                }
+                 <h6 class="price"><span class="currency">&#8377;</span>@GetSelectedVaraint().Price</h6>
+            }
+           
              </div>
     </div>
 }
 @code {
     private Product product = null;
     private String message = null;
+    private int currentTypeId = 1;
     [Parameter]
     public int Id { get; set; }
     protected override async Task OnParametersSetAsync()
@@ -36,9 +60,20 @@ else
         else
         {
             product = result.Data;
+            if(product.Variants.Count >0)
+            {
+                currentTypeId = product.Variants[0].ProductTypeId;
+            }
+
         }
-       
-      
+
+
+    }
+
+    private ProductVariant GetSelectedVaraint()
+    {
+        var variant = product.Variants.FirstOrDefault(v => v.ProductTypeId == currentTypeId);
+        return variant;
     }
 
 }

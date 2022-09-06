@@ -24,7 +24,7 @@ namespace ShopEazy.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopEasy.Shared.Models.Product", b =>
+            modelBuilder.Entity("ShopEazy.Shared.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

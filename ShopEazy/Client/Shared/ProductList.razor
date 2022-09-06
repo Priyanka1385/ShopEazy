@@ -1,11 +1,11 @@
 ﻿@inject IProductClientServices ProductClientServices
-@using ShopEasy.Shared.Models
+@using ShopEazy.Shared.Models
 @using ShopEazy.Shared
 @implements IDisposable
 
 @if (ProductClientServices.Products == null || ProductClientServices.Products.Count == 0)
 {
-    <span>Loding Products...</span>
+    <span>@ProductClientServices.Message</span>
 
 }
 else
@@ -25,8 +25,8 @@ else
                     </a>
                     <p>@Product.Description</p>
                     <h5 class="price">
-                        @Product.Price
-                        @*@GetPriceText(product)*@
+                        <span class="currency">&#8377;</span>
+                        @GetPriceText(Product)
                     </h5>
                 </div>
             </li>
@@ -45,5 +45,20 @@ else
     public void Dispose()
     {
         ProductClientServices.ProductsSelectionChanged -= StateHasChanged;
+    }
+
+    private string GetPriceText(Product product)
+    {
+        var Variants = product.Variants;
+        if(Variants.Count == 0)
+        {
+            return String.Empty;
+
+        }else if (Variants.Count == 1)
+        {
+            return $"{Variants[0].Price}";
+        }
+        var minPrice = Variants.Min(v => v.Price);
+        return $"Starting at {minPrice}";
     }
 }

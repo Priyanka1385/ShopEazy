@@ -24,7 +24,7 @@ namespace ShopEazy.Server.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopEasy.Shared.Models.Category", b =>
+            modelBuilder.Entity("ShopEazy.Shared.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,7 +92,7 @@ namespace ShopEazy.Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopEasy.Shared.Models.Product", b =>
+            modelBuilder.Entity("ShopEazy.Shared.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -291,9 +291,9 @@ namespace ShopEazy.Server.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ShopEasy.Shared.Models.Product", b =>
+            modelBuilder.Entity("ShopEazy.Shared.Models.Product", b =>
                 {
-                    b.HasOne("ShopEasy.Shared.Models.Category", "Category")
+                    b.HasOne("ShopEazy.Shared.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)

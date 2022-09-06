@@ -1,4 +1,4 @@
-﻿using ShopEasy.Shared.Models;
+﻿using ShopEazy.Shared.Models;
 using ShopEazy.Shared;
 
 namespace ShopEazy.Client.ClientServices.ClientCategoryServices

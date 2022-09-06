@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShopEasy.Shared.Models;
+using ShopEazy.Shared.Models;
 using ShopEazy.Server.Data;
 using ShopEazy.Shared;
 

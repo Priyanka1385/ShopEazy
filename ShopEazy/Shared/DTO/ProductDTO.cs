@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;//using Microsoft.EntityFrameworkCore;
-using ShopEasy.Shared.Models;
 
 
-namespace ShopEasy.Shared.DTO
+
+namespace ShopEazy.Shared.DTO
 {
     
     public partial class ProductDTO

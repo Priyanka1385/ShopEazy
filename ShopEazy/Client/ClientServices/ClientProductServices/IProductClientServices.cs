@@ -1,4 +1,4 @@
-﻿using ShopEasy.Shared.Models;
+﻿using ShopEazy.Shared.Models;
 using ShopEazy.Shared;
 
 namespace ShopEazy.Client.ClientServices.ClientProductServices
@@ -7,7 +7,13 @@ namespace ShopEazy.Client.ClientServices.ClientProductServices
     {
         event Action ProductsSelectionChanged;
         public List<Product> Products { get; set; }
-        Task GetProducts(string CategoryUrl=null);
+        string Message { get; set; }
+        Task GetProducts(string CategoryUrl = null);
         Task<ApplicationResponse<Product>> GetProductById(int Id);
+
+        Task SearchProducts(String SearchText);
+
+        Task<List<String>> GetProductSearchSuggestions(string SearchText);
+
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-using ShopEasy.Shared.Models;
+using ShopEazy.Shared.Models;
 
-namespace ShopEasy.Shared.Models
+namespace ShopEazy.Shared.Models
 {
     [Table("Categories")]
     public partial class Category
@@ -19,7 +19,7 @@ namespace ShopEasy.Shared.Models
 
         [Column("Description")]
         public string? Description { get; set; }
- 
+
         public string Url { get; set; }
 
         [Column("created_at", TypeName = "datetime")]
@@ -30,6 +30,6 @@ namespace ShopEasy.Shared.Models
 
         [Column("IsActive", TypeName = "bit")]
         public bool IsActive { get; set; }
- 
+
     }
 }

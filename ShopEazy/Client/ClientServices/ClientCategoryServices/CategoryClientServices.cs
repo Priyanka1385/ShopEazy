@@ -1,4 +1,4 @@
-﻿using ShopEasy.Shared.Models;
+﻿using ShopEazy.Shared.Models;
 using ShopEazy.Shared;
 using System.Net.Http.Json;
 
@@ -13,8 +13,8 @@ namespace ShopEazy.Client.ClientServices.ClientCategoryServices
             _http = http;
         }
 
-        public List<Category> categories { get; set ; }= new List<Category>();
-        
+        public List<Category> categories { get; set; } = new List<Category>();
+
         public async Task GetCategories()
         {
             var result = await _http.GetFromJsonAsync<ApplicationResponse<List<Category>>>("api/Category");

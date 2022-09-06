@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ShopEasy.Shared.Models;
+using ShopEazy.Shared.Models;
 using ShopEazy.Server.Services.CategoryServices;
 using ShopEazy.Shared;
 

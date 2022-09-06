@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 
-namespace ShopEasy.Shared.Models
+namespace ShopEazy.Shared.Models
 {
     [Table("Products")]
-    public partial class Product    {
-       
+    public partial class Product
+    {
+
 
         [Key]
         public int Id { get; set; }
@@ -23,11 +24,11 @@ namespace ShopEasy.Shared.Models
 
         [Column("SKU")]
         [StringLength(50)]
-        
+
         public string? SKU { get; set; }
 
-        [Column("Price", TypeName = "decimal(18,2)")]
-        public decimal Price { get; set; }
+        //[Column("Price", TypeName = "decimal(18,2)")]
+        //public decimal Price { get; set; }
 
         public string? ImageUrl { get; set; }
         public DateTime CreatedAt { get; set; }
@@ -41,6 +42,7 @@ namespace ShopEasy.Shared.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
 
+        public List<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
 
     }
 }
