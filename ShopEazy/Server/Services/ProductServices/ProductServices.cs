@@ -14,6 +14,19 @@ namespace ShopEazy.Server.Services.ProductServices
             _context = context;
         }
 
+        public async Task<ApplicationResponse<List<Product>>> GetFeaturedProducts()
+        {
+            ApplicationResponse<List<Product>> response = new ApplicationResponse<List<Product>>();
+            var FeaturedProducts = await _context.Products
+                .Where(p => p.Featured)
+                .Include(v => v.Variants)
+                .ToListAsync();
+
+            response.Data=FeaturedProducts;
+            response.Message = "List of Featured Products";
+            return response;
+        }
+
         public async Task<ApplicationResponse<List<Product>>> GetProduct()
         {
             ApplicationResponse<List<Product>> response = new ApplicationResponse<List<Product>>();

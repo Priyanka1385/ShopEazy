@@ -57,5 +57,12 @@ namespace ShopEazy.Server.Controllers
             return Ok(response);
 
         }
+        [HttpGet("featured")] //https://localhost:44332/api/product/featured
+        public async Task<ActionResult<ApplicationResponse<List<Product>>>> GetFeaturedProducts()
+        {
+            var response = await _productServices.GetFeaturedProducts();
+            return Ok(response);
+
+        }
     }
 }

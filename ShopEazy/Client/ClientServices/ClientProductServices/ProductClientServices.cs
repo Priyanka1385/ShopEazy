@@ -29,8 +29,9 @@ namespace ShopEazy.Client.ClientServices.ClientProductServices
 
         public async Task GetProducts(string CategoryUrl = null)
         {
-            var result = CategoryUrl == null ? await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>("api/Product") :
-                await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>($"api/Product/category/{CategoryUrl}");
+            var result = CategoryUrl == null 
+                ? await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>("api/Product/featured") 
+                : await _http.GetFromJsonAsync<ApplicationResponse<List<Product>>>($"api/Product/category/{CategoryUrl}");
 
             Products = result.Data;
             ProductsSelectionChanged.Invoke();

@@ -42,6 +42,7 @@ namespace ShopEazy.Shared.Models
         public Category Category { get; set; }
         public int CategoryId { get; set; }
 
+        public bool Featured { get; set; }
         public List<ProductVariant> Variants { get; set; } = new List<ProductVariant>();
 
     }

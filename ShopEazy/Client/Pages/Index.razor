@@ -3,8 +3,13 @@
 @page "/{categoryUrl}"
 @inject IProductClientServices ProductClientServices
 
+@if(SearchText==null && CategoryUrl == null)
+{
+ <FeaturedProducts></FeaturedProducts>   
+}
+else{
 <ProductList/>
-
+}
 @code{
     [Parameter]
     public String CategoryUrl { get; set; } = null;
@@ -16,11 +21,14 @@
     {
         if (SearchText != null)
         {
-           await ProductClientServices.SearchProducts(SearchText);
+            await ProductClientServices.SearchProducts(SearchText);
+        }else if(CategoryUrl != null)
+        {
+             await ProductClientServices.GetProducts(CategoryUrl);
         }
         else
         {
-            await ProductClientServices.GetProducts(CategoryUrl);
+            await ProductClientServices.GetProducts();
         }
     }
 
