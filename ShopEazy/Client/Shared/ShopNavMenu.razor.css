@@ -46,7 +46,7 @@
 }
 
 .flex-nav{
-    flex-direction:row;
+    flex-direction:column;
 }
 
 @media (min-width: 641px) {
